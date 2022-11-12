@@ -134,11 +134,8 @@ wget https://cpan.metacpan.org/authors/id/L/LD/LDS/Bio-BigFile-1.01.tar.gz && \
 tar -zxvf Bio-BigFile-1.01.tar.gz && cd Bio-BigFile-1.01 && \
 perl -pi -e 's/.*extra_linker_flags.*/extra_linker_flags => ["\$jk_lib\/\$LibFile","-lhts","-lz", "-lssl"],/g' Build.PL
 
-RUN apt-get install -y iputils-ping
-
 RUN cd && \
 mkdir .otter && \
-touch .otter/config.ini && \
-echo "[client]\nauthor=anamap51" | tee .otter/config.ini
+touch .otter/config.ini
 
 CMD $HOME/otter-client/software/anacode/otter/otter_live/bin/otter

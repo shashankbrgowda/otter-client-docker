@@ -1,5 +1,7 @@
 #!/bin/bash
 
+read -p "Enter config.ini location (ex: /home/ebi/config.ini): " filepath
+
 # Stop if any existing socat running for clean start
 kill -9 $(lsof -n -i | grep 6000 | awk '{ print $2 }')
 
@@ -18,7 +20,7 @@ xhost +
 
 docker pull shashankbrgowda/otter-client-docker:1.0.0
 
-# start logging
-exec &> >(tee -a "~/otter.log")
-
-docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix shashankbrgowda/otter-client-docker:1.0.0
+docker run -ti --rm -e DISPLAY=$DISPLAY \
+-v /tmp/.X11-unix:/tmp/.X11-unix \
+-v $filepath:/root/.otter/config.ini \
+shashankbrgowda/otter-client-docker:1.0.0
