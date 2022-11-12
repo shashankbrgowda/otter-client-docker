@@ -18,9 +18,12 @@ defaults write org.xquartz.X11.plist nolisten_tcp -bool false
 export DISPLAY=`ipconfig getifaddr en0`:0
 xhost +
 
-docker pull shashankbrgowda/otter-client-docker:1.0.0
+# Pull the latest tagged image
+docker pull shashankbrgowda/otter-client-docker:latest
 
 docker run -ti --rm -e DISPLAY=$DISPLAY \
--v /tmp/.X11-unix:/tmp/.X11-unix \
--v $filepath:/root/.otter/config.ini \
-shashankbrgowda/otter-client-docker:1.0.0
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-v $filepath:/root/.otter/config.ini \
+	-v $HOME/otter/:/root/.otter/ \
+	-v $HOME/otter/sqlite/:/var/tmp/otter_root/ \
+	shashankbrgowda/otter-client-docker:latest
