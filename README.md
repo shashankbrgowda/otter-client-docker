@@ -23,8 +23,10 @@ Run the installtion script first. After running this script we need to restart o
 ./osx/install.sh
 ```
 
-Now run the start script to start the otter client. We need to enter file location of config.ini when prompted. We can mount more files through volumn if necessary.
+Now run the start script to start the otter client. We need to enter file location of config.ini (ex: /home/ebi/config.ini) when prompted. We can mount more files through volumn if necessary.
 ```
 ./osx/start.sh
 ```
+
+Note: .otter directory of otter client is mounted on $HOME/otter/ and /var/tmp/otter_root/ on $HOME/otter/sqlite/
 
