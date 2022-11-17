@@ -5,8 +5,7 @@ read -p "Enter config.ini location (ex: /home/ebi/config.ini): " filepath
 # Stop if any existing socat running for clean start
 kill -9 $(ps -ef | grep 6000 | awk 'NR==1{print $2; exit}')
 
-# Start socat - bridge between a network socket with a TCP listener on port 6000 (the 
-# default port of the X window system) and the X window server (xquartz x11) on my OS X host
+# Start socat - bridge between a network socket with a TCP listener on port 6000 and the X window server
 socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\" &
 
 export DISPLAY=`hostname -I | cut -f1 -d' '`:0
