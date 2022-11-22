@@ -2,4 +2,4 @@
 
 # x server is preinstalled in ubuntu, we just need to install socat
 
-sudo apt-get install socat
+apt-get install socat

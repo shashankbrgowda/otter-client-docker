@@ -34,28 +34,23 @@ Note: .otter directory of otter client is mounted on $HOME/otter/ and /var/tmp/o
 
 ## Ubuntu Installation
 
-In order to run Otter client GUI in a docker container we are using Socat and X server. Socat is a unix tool which allows bidirectional streams between two connections and X server system is used for running GUI remotely. As a result we create connection between docker container running otter GUI and x server.
+In order to run Otter client GUI in a docker container we are using X server.
 
-#### OSX Prerequisites
+#### Ubuntu Prerequisites
 
 * Docker
 
 #### Installation steps
 
-We need to run two simple scripts to install and run otter client
+We need to run start script to install and run otter client
 
 ```
 cd otter-client-docker
 ```
 
-Run the installtion script first.
-```
-./ubuntu/install.sh
-```
-
-Now run the start script to start the otter client. We need to enter file location of config.ini (ex: /home/ebi/config.ini) when prompted. We can mount more files through volumn if necessary.
+Run the start script to start the otter client. 
 ```
 ./ubuntu/start.sh
 ```
 
-Note: .otter directory of otter client is mounted on $HOME/otter/ and /var/tmp/otter_root/ on $HOME/otter/sqlite/
+Note: .otter directory of otter client is mounted on $HOME/.otter/ and /var/tmp/otter_root/ on $HOME/otter_$USER directory of host machine

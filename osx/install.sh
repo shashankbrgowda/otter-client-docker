@@ -1,11 +1,5 @@
 #!/bin/bash
 
-echo ""
-echo "##############################################################"
-echo "# Starting Otter installation"
-echo "############################################################"
-echo ""
-
 # Check for Homebrew, install if we don't have it
 if test ! $(which brew); then
     echo "Installing homebrew..."
